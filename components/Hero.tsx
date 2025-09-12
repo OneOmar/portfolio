@@ -3,7 +3,7 @@ import { Spotlight } from "./ui/Spotlight";
 
 const Hero = () => {
   return (
-    <section className="pb-20 pt-36 w-full">
+    <section className="min-h-screen pb-20 pt-36">
       {/* Spotlights */}
       <Spotlight
         className="absolute -top-40 -left-10 md:-left-32 md:-top-20"
