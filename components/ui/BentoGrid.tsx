@@ -43,49 +43,15 @@ export function BentoGrid({ className, children }: BentoGridProps) {
 }
 
 /* ------------------ tech stacks rendered on id === 3 ------------------ */
-// export function TechStacks() {
-//   const leftList = ["ReactJS", "Express", "Typescript"];
-//   const rightList = ["VueJS", "NuxtJS", "GraphQL"];
-
-//   return (
-//     <div className="flex flex-1 justify-end items-start gap-4 mt-4 flex-wrap lg:flex-nowrap">
-//       {/* TechStacks columns */}
-//       <div className="flex gap-4">
-//         {/* Left column */}
-//         <div className="flex flex-col gap-2">
-//           {leftList.map((item, i) => (
-//             <span
-//               key={i}
-//               className="py-1 px-3 lg:py-2 lg:px-3 text-xs lg:text-sm text-center bg-[#10132E] rounded-lg opacity-90"
-//             >
-//               {item}
-//             </span>
-//           ))}
-//         </div>
-
-//         {/* Right column */}
-//         <div className="flex flex-col gap-2">
-//           {rightList.map((item, i) => (
-//             <span
-//               key={i}
-//               className="py-1 px-3 lg:py-2 lg:px-3 text-xs lg:text-sm text-center bg-[#10132E] rounded-lg opacity-90"
-//             >
-//               {item}
-//             </span>
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
 export function TechStacks() {
-  const leftList = ["ReactJS", "Express", "Typescript"];
-  const rightList = ["VueJS", "NuxtJS", "GraphQL"];
+  const leftList =  ["TypeScript", "React", "Next.js", "TailwindCSS"];
+  const rightList = ["Java", "Spring Boot", "Node.js", "PostgreSQL"];
 
   return (
     <div className="absolute top-4 right-4 z-20 flex gap-4 flex-wrap lg:flex-nowrap">
+      {/* TechStacks columns */}
       <div className="flex gap-4">
+        {/* Left column */}
         <div className="flex flex-col gap-2">
           {leftList.map((item, i) => (
             <span
@@ -97,6 +63,7 @@ export function TechStacks() {
           ))}
         </div>
 
+        {/* Right column */}
         <div className="flex flex-col gap-2">
           {rightList.map((item, i) => (
             <span

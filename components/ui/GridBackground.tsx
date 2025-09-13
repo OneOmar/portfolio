@@ -24,11 +24,11 @@ export function GridBackground() {
       {/* Centered content */}
       <div className="relative flex flex-col items-center justify-center text-center px-5 sm:px-10 max-w-[89vw] md:max-w-2xl lg:max-w-[60vw]">
         <p className="uppercase tracking-widest text-blue-100 text-sm sm:text-base md:text-lg mb-4">
-          Dynamic Web Magic with Next.js
+          Full-Stack Developer | React & Next.js | Java & Spring Boot
         </p>
 
         <TextGenerateEffect
-          words="Transforming Concepts into Seamless User Experiences"
+          words="Building Clean, Performant Web Apps with Smooth UX"
           className="text-[40px] md:text-4xl lg:text-6xl mb-4"
         />
 
