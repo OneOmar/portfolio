@@ -43,30 +43,71 @@ export function BentoGrid({ className, children }: BentoGridProps) {
 }
 
 /* ------------------ tech stacks rendered on id === 3 ------------------ */
-function TechStacks() {
-  const [leftLists, rightLists] = useMemo(
-    () => [
-      ['ReactJS', 'Express', 'Typescript'],
-      ['VueJS', 'NuxtJS', 'GraphQL'],
-    ],
-    []
-  );
+// export function TechStacks() {
+//   const leftList = ["ReactJS", "Express", "Typescript"];
+//   const rightList = ["VueJS", "NuxtJS", "GraphQL"];
+
+//   return (
+//     <div className="flex flex-1 justify-end items-start gap-4 mt-4 flex-wrap lg:flex-nowrap">
+//       {/* TechStacks columns */}
+//       <div className="flex gap-4">
+//         {/* Left column */}
+//         <div className="flex flex-col gap-2">
+//           {leftList.map((item, i) => (
+//             <span
+//               key={i}
+//               className="py-1 px-3 lg:py-2 lg:px-3 text-xs lg:text-sm text-center bg-[#10132E] rounded-lg opacity-90"
+//             >
+//               {item}
+//             </span>
+//           ))}
+//         </div>
+
+//         {/* Right column */}
+//         <div className="flex flex-col gap-2">
+//           {rightList.map((item, i) => (
+//             <span
+//               key={i}
+//               className="py-1 px-3 lg:py-2 lg:px-3 text-xs lg:text-sm text-center bg-[#10132E] rounded-lg opacity-90"
+//             >
+//               {item}
+//             </span>
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+export function TechStacks() {
+  const leftList = ["ReactJS", "Express", "Typescript"];
+  const rightList = ["VueJS", "NuxtJS", "GraphQL"];
 
   return (
-    <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2">
-      {[leftLists, rightLists].map((list, idx) => (
-        <div key={idx} className="flex flex-col gap-3 lg:gap-8">
-          {list.map((item, i) => (
+    <div className="absolute top-4 right-4 z-20 flex gap-4 flex-wrap lg:flex-nowrap">
+      <div className="flex gap-4">
+        <div className="flex flex-col gap-2">
+          {leftList.map((item, i) => (
             <span
               key={i}
-              className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]"
+              className="py-1 px-3 lg:py-2 lg:px-3 text-xs lg:text-sm text-center bg-[#10132E] rounded-lg opacity-90"
             >
               {item}
             </span>
           ))}
-          <span className="lg:py-4 lg:px-3 py-4 px-3 rounded-lg text-center bg-[#10132E]" />
         </div>
-      ))}
+
+        <div className="flex flex-col gap-2">
+          {rightList.map((item, i) => (
+            <span
+              key={i}
+              className="py-1 px-3 lg:py-2 lg:px-3 text-xs lg:text-sm text-center bg-[#10132E] rounded-lg opacity-90"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
@@ -130,7 +171,7 @@ export function BentoGridItem({
         <img
           src={spareImg}
           alt=""
-          className="absolute right-0 -bottom-5 w-full opacity-80 object-cover pointer-events-none"
+          className="absolute right-0 -bottom-5 w-full opacity-50 object-cover pointer-events-none"
         />
       )}
       {id === 6 && <BackgroundGradientAnimation />}
@@ -138,12 +179,12 @@ export function BentoGridItem({
       {/* content */}
       <div
         className={cn(
-          'relative flex flex-col flex-1 z-20 transition duration-200 group-hover/bento:translate-x-2',
+          'relative flex flex-col flex-1 gap-4 z-10 transition duration-200 group-hover/bento:translate-x-2 pointer-events-none',
           titleClassName
         )}
       >
         {title && (
-          <div className={cn('font-sans font-bold text-lg lg:text-2xl', id === 1 ? 'mt-0 mb-0' : 'mt-2 mb-2')}>
+          <div className={cn('font-sans font-bold text-lg lg:text-2xl')}>
             {title}
           </div>
         )}
