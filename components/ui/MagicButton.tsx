@@ -18,7 +18,7 @@ const MagicButton: React.FC<MagicButtonProps> = ({
 }) => {
   return (
     <button
-      className="relative inline-flex h-12 w-full md:w-60 md:mt-10 overflow-hidden rounded-lg p-[1px] focus:outline-none"
+      className="relative inline-flex h-12 w-full md:w-60 overflow-hidden rounded-lg p-[1px] focus:outline-none"
       onClick={handleClick}
     >
       {/* Spinning gradient background */}
