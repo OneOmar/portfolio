@@ -106,7 +106,7 @@ export function BentoGridItem({
   // copy handler
   const handleCopy = useCallback(async () => {
     try {
-      await navigator.clipboard.writeText('test@contact.com');
+      await navigator.clipboard.writeText('elmanssouriomar@gmail.com');
       setCopied(true);
       // setTimeout(() => setCopied(false), 3000); // optional reset after 3s
     } catch (err) {
@@ -146,7 +146,8 @@ export function BentoGridItem({
       {/* content */}
       <div
         className={cn(
-          'relative flex flex-col flex-1 gap-4 z-10 transition duration-200 group-hover/bento:translate-x-2 pointer-events-none',
+          'relative flex flex-col flex-1 gap-4 z-10 transition duration-200 group-hover/bento:translate-x-2',
+          id === 2 && 'pointer-events-none', // disable only for id 2
           titleClassName
         )}
       >

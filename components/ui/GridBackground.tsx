@@ -35,7 +35,7 @@ export function GridBackground() {
         <p className="text-sm md:text-lg lg:text-2xl">
           Hi! I&apos;m Omar, a Full-Stack Developer based in Morocco.
         </p>
-        <a href="#about" className="mt-4">
+        <a href="#projects" className="mt-4">
           <MagicButton
             title="Show my work"
             icon={<FaLocationArrow />}
