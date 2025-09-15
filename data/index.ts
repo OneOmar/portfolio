@@ -73,36 +73,37 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
-    title: "Contact List App",
+    title: "React & Spring Boot Blog App",
     description:
-      "Full-stack contact manager built with React (frontend) and Spring Boot (backend). Supports create, edit and delete with real-time data sync and a clean, user-friendly UI.",
-    img: "/p1.svg",
-    link: "https://github.com/OneOmar/contact-list-app",
+      "Full-stack blogging platform built with React for a dynamic, SEO-friendly frontend and Spring Boot for a robust backend API.",
+    img: "/p2.svg",
+    link: "https://github.com/OneOmar/blog-app-backend",
   },
   {
     id: 2,
-    title: "Next.js Blog App",
-    description:
-      "SEO-optimized blogging platform using Next.js with dynamic content management and fast page rendering.",
-    img: "/p2.svg",
-    link: "https://github.com/OneOmar/nextjs-blog-app",
-  },
-  {
-    id: 3,
     title: "React Real Estate App",
     description:
       "Responsive real estate web app developed with React and SASS, featuring an intuitive interface for property browsing.",
     img: "/p3.svg",
-    link: "https://github.com/OneOmar/react-real-estate-app",
+    link: "https://github.com/OneOmar/real-estate-app",
   },
   {
-    id: 4,
+    id: 3,
     title: "E-commerce Websites (YouCan Platform)",
     description:
       "Developed and optimized e-commerce sites on the YouCan platform to boost user experience and conversion rates, integrating analytics for data-driven improvements.",
     img: "/p4.svg",
     link: "https://github.com/OneOmar/youcan-ecommerce",
   },
+  {
+    id: 4,
+    title: "Restaurant Fiasco",
+    description:
+      "Responsive restaurant website mockup featuring HTML & CSS. Showcases menu pages, recipe previews, and image galleries with clean layout and visual design.",
+    img: "/restaurant_fiasco.png",
+    link: "https://github.com/OneOmar/Restaurant_Fiasco",
+  }
+
 ];
 
 export const experiences = [
