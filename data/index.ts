@@ -1,7 +1,7 @@
 export const navItems = [
   { name: "About", link: "#about" },
   { name: "Projects", link: "#projects" },
-  { name: "Testimonials", link: "#testimonials" },
+  { name: "Experiences", link: "#experiences" },
   { name: "Contact", link: "#contact" },
 ];
 
@@ -18,7 +18,7 @@ export const gridItems = [
   },
   {
     id: 2,
-    title: "I'm very flexible with time zone communications",
+    title: "Flexible with time zone communications",
     description: "",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
@@ -38,7 +38,7 @@ export const gridItems = [
   },
   {
     id: 4,
-    title: "Tech enthusiast with a passion for development.",
+    title: "Creating performant, maintainable web apps with smooth UX.",
     description: "",
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
     imgClassName: "",
@@ -49,7 +49,7 @@ export const gridItems = [
 
   {
     id: 5,
-    title: "Currently building a JS Animation library",
+    title: "Currently building a React/Next.js Web App",
     description: "The Inside Scoop",
     className: "md:col-span-3 md:row-span-2",
     imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
@@ -69,135 +69,116 @@ export const gridItems = [
   },
 ];
 
+
 export const projects = [
   {
     id: 1,
-    title: "3D Solar System Planets to Explore",
-    des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
+    title: "Contact List App",
+    description:
+      "Full-stack contact manager built with React (frontend) and Spring Boot (backend). Supports create, edit and delete with real-time data sync and a clean, user-friendly UI.",
     img: "/p1.svg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
-    link: "/ui.earth.com",
+    link: "https://github.com/OneOmar/contact-list-app",
   },
   {
     id: 2,
-    title: "Yoom - Video Conferencing App",
-    des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
+    title: "Next.js Blog App",
+    description:
+      "SEO-optimized blogging platform using Next.js with dynamic content management and fast page rendering.",
     img: "/p2.svg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
-    link: "/ui.yoom.com",
+    link: "https://github.com/OneOmar/nextjs-blog-app",
   },
   {
     id: 3,
-    title: "AI Image SaaS - Canva Application",
-    des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
+    title: "React Real Estate App",
+    description:
+      "Responsive real estate web app developed with React and SASS, featuring an intuitive interface for property browsing.",
     img: "/p3.svg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
-    link: "/ui.aiimg.com",
+    link: "https://github.com/OneOmar/react-real-estate-app",
   },
   {
     id: 4,
-    title: "Animated Apple Iphone 3D Website",
-    des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
+    title: "E-commerce Websites (YouCan Platform)",
+    description:
+      "Developed and optimized e-commerce sites on the YouCan platform to boost user experience and conversion rates, integrating analytics for data-driven improvements.",
     img: "/p4.svg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
-    link: "/ui.apple.com",
+    link: "https://github.com/OneOmar/youcan-ecommerce",
   },
 ];
 
-export const testimonials = [
-  {
-    quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
-  },
-  {
-    quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
-  },
-  {
-    quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
-  },
-  {
-    quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
-  },
-  {
-    quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
-  },
-];
-
-export const companies = [
+export const experiences = [
   {
     id: 1,
-    name: "cloudinary",
-    img: "/cloud.svg",
-    nameImg: "/cloudName.svg",
+    title: "Remote Coding Expert – Outlier (Upwork Project)",
+    desc: "Provided coding expertise in JavaScript, Java, and Python to help train generative AI models. Crafted and evaluated code solutions, reviewed AI-generated code, and delivered detailed feedback in French to improve large language models.",
+    className: "md:col-span-2",
+    thumbnail: "/exp4.svg",
   },
   {
     id: 2,
-    name: "appwrite",
-    img: "/app.svg",
-    nameImg: "/appName.svg",
-  },
-  {
-    id: 3,
-    name: "HOSTINGER",
-    img: "/host.svg",
-    nameImg: "/hostName.svg",
-  },
-  {
-    id: 4,
-    name: "stream",
-    img: "/s.svg",
-    nameImg: "/streamName.svg",
-  },
-  {
-    id: 5,
-    name: "docker.",
-    img: "/dock.svg",
-    nameImg: "/dockerName.svg",
-  },
-];
-
-export const workExperience = [
-  {
-    id: 1,
-    title: "Frontend Engineer Intern",
-    desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
+    title: "Web Developer – NATUP / BS Outdoor",
+    desc: "Created precise HTML/CSS mockups, built responsive interactive features with React and TailwindCSS, improved performance and ensured cross-browser compatibility. Implemented rigorous testing to ensure robust code and encourage best-practice development.",
     className: "md:col-span-2",
     thumbnail: "/exp1.svg",
   },
   {
-    id: 2,
-    title: "Mobile App Dev - JSM Tech",
-    desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
-    className: "md:col-span-2", // change to md:col-span-2
+    id: 3,
+    title: "E-commerce Web Developer – COD Network",
+    desc: "Designed and developed YouCan e-commerce websites focused on UX and conversions. Integrated interactive features, optimized site speed and reliability, and implemented analytics with the marketing team for data-driven strategy.",
+    className: "md:col-span-2",
     thumbnail: "/exp2.svg",
   },
   {
-    id: 3,
-    title: "Freelance App Dev Project",
-    desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
-    className: "md:col-span-2", // change to md:col-span-2
+    id: 4,
+    title: "PFE Intern – Jacobs Engineering SA (Jesa)",
+    desc: "Completed final engineering project in Laayoune, Morocco",
+    className: "md:col-span-2",
     thumbnail: "/exp3.svg",
   },
+];
+
+export const phases = [
   {
-    id: 4,
-    title: "Lead Frontend Developer",
-    desc: "Developed and maintained user-facing features using modern frontend technologies.",
-    className: "md:col-span-2",
-    thumbnail: "/exp4.svg",
+    title: "Planning",
+    order: "Phase 1",
+    description: `Define goals, target users and main features. Choose the tech stack and design the database structure.`,
+    effectProps: {
+      animationSpeed: 5.1,
+      containerClassName: "bg-emerald-900 rounded-3xl overflow-hidden",
+    },
+  },
+  {
+    title: "Development",
+    order: "Phase 2",
+    description: `Build the frontend with React/Next.js and the backend with Spring Boot or Node.js. Ensure clean code and smooth data flow.`,
+    effectProps: {
+      animationSpeed: 3,
+      containerClassName: "bg-pink-900 rounded-3xl overflow-hidden",
+      colors: [
+        [255, 166, 158],
+        [221, 255, 247],
+      ],
+      dotSize: 2,
+    },
+  },
+  {
+    title: "Testing",
+    order: "Phase 3",
+    description: `Run unit and integration tests, optimize performance and ensure cross-browser compatibility.`,
+    effectProps: {
+      animationSpeed: 3,
+      containerClassName: "bg-sky-600 rounded-3xl overflow-hidden",
+      colors: [[125, 211, 252]],
+    },
+  },
+  {
+    title: "Deployment",
+    order: "Phase 4",
+    description: `Deploy the application, configure hosting and provide documentation for a smooth handover.`,
+    effectProps: {
+      animationSpeed: 3,
+      containerClassName: "bg-purple-700 rounded-3xl overflow-hidden",
+      colors: [[196, 181, 253]],
+    },
   },
 ];
 
@@ -205,13 +186,16 @@ export const socialMedia = [
   {
     id: 1,
     img: "/git.svg",
+    url: "https://github.com/OneOmar",
   },
   {
     id: 2,
     img: "/twit.svg",
+    url: "#",
   },
   {
     id: 3,
     img: "/link.svg",
+    url: "https://www.linkedin.com/in/omar-el-manssouri/",
   },
 ];
