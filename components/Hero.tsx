@@ -3,12 +3,9 @@ import { Spotlight } from "./ui/Spotlight";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen pb-20 pt-36">
+    <section className="min-h-screen py-20 relative overflow-hidden">
+
       {/* Spotlights */}
-      <Spotlight
-        className="absolute -top-40 -left-10 md:-left-32 md:-top-20"
-        fill="white"
-      />
       <Spotlight
         className="absolute top-10 left-3/4 h-[80vh] w-[50vw]"
         fill="purple"
@@ -18,8 +15,9 @@ const Hero = () => {
         fill="blue"
       />
 
-      {/* Grid Background */}
+      {/* Grid Background and centered content */}
       <GridBackground />
+
     </section>
   );
 };
