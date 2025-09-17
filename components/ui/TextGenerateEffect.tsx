@@ -1,66 +1,40 @@
 "use client";
-import { useEffect } from "react";
-import { motion, stagger, useAnimate } from "motion/react";
+import React from "react";
 import { cn } from "@/lib/utils";
 
-export const TextGenerateEffect = ({
-  words,
-  className,
-  filter = true,
-  duration = 0.5,
-}: {
+interface TextGenerateEffectProps {
   words: string;
   className?: string;
-  filter?: boolean;
-  duration?: number;
-}) => {
-  const [scope, animate] = useAnimate();
-  let wordsArray = words.split(" ");
-  useEffect(() => {
-    animate(
-      "span",
-      {
-        opacity: 1,
-        filter: filter ? "blur(0px)" : "none",
-      },
-      {
-        duration: duration ? duration : 1,
-        delay: stagger(0.2),
-      }
-    );
-  }, [scope.current]);
+}
 
-  const renderWords = () => {
-    return (
-      <motion.div ref={scope}>
-        {wordsArray.map((word, idx) => {
-          return (
-            <motion.span
-              key={word + idx}
-              className={`${idx > 3 ? "text-[#CBACF9]" : "dark:text-white text-black"} opacity-0`}
-              style={{
-                filter: filter ? "blur(10px)" : "none",
-              }}
-            >
-              {word}{" "}
-            </motion.span>
-          );
-        })}
-      </motion.div>
-    );
-  };
+export const TextGenerateEffect = ({ words, className }: TextGenerateEffectProps) => {
+  const wordsArray = words.split(" ");
 
   return (
     <div className={cn("font-bold", className)}>
       <div className="my-2 sm:my-4">
         <div
-          className="dark:text-white text-black leading-snug tracking-wide
-                 text-xl sm:text-3xl md:text-5xl lg:text-6xl"
+          className="leading-snug tracking-wide text-xl sm:text-3xl md:text-5xl lg:text-6xl"
         >
-          {renderWords()}
+          {wordsArray.map((word, idx) => (
+            <span
+              key={idx}
+              className={cn(
+                "inline opacity-0",
+                idx > 3
+                  ? "text-purple"
+                  : "dark:text-white text-black"
+              )}
+              style={{
+                animation: `var(--animate-fadeBlur)`,
+                animationDelay: `${idx * 0.1}s`,
+              }}
+            >
+              {word}{" "} {/* Keeps spacing between words */}
+            </span>
+          ))}
         </div>
       </div>
     </div>
-
   );
 };

@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
 import React from "react";
+import { cn } from "@/lib/utils";
 import { TextGenerateEffect } from "./TextGenerateEffect";
 import MagicButton from "./MagicButton";
 import { FaLocationArrow } from "react-icons/fa6";
@@ -23,26 +23,30 @@ export function GridBackground() {
 
       {/* Centered content */}
       <div className="relative flex flex-col items-center justify-center text-center px-5 sm:px-10 max-w-[89vw] md:max-w-2xl lg:max-w-[60vw]">
+        {/* Role description */}
         <p className="uppercase tracking-widest text-blue-100 text-sm sm:text-base md:text-lg mb-4">
           Full-Stack Developer | React & Next.js | Java & Spring Boot
         </p>
 
+        {/* Animated headline */}
         <TextGenerateEffect
           words="Building Clean, Performant Web Apps with Smooth UX"
           className="text-[40px] md:text-4xl lg:text-6xl mb-4"
         />
 
+        {/* Short intro */}
         <p className="text-sm md:text-lg lg:text-2xl">
           Hi! I&apos;m Omar, a Full-Stack Developer based in Morocco.
         </p>
-        <a href="#projects" className="mt-4">
+
+        {/* CTA button */}
+        <a href="#projects" className="mt-4 md:mt-10">
           <MagicButton
             title="Show my work"
             icon={<FaLocationArrow />}
             position="right"
           />
         </a>
-
       </div>
     </div>
   );

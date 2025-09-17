@@ -37,6 +37,8 @@ export const PinContainer = ({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       href={href || "/"}
+      target={"_blank"}
+      rel={"noopener noreferrer"}
     >
       <div
         style={{
@@ -70,17 +72,26 @@ export const PinPerspective = ({
     <motion.div className="pointer-events-none  w-96 h-80 flex items-center justify-center opacity-0 group-hover/pin:opacity-100 z-[60] transition duration-500">
       <div className=" w-full h-full -mt-7 flex-none  inset-0">
         <div className="absolute top-0 inset-x-0  flex justify-center">
-          <a
-            href={href}
-            target={"_blank"}
-            className="relative flex space-x-2 items-center z-10 rounded-full bg-zinc-950 py-0.5 px-4 ring-1 ring-white/10 "
+          {/*
+          IMPORTANT: remove nested <a> to avoid "<a> cannot be a descendant of <a>" hydration errors.
+          Use a <button> with pointer-events-auto inside the pointer-events-none parent so it can still receive clicks,
+          stopPropagation to avoid triggering the outer anchor, and open a new tab with window.open.
+        */}
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              if (href) window.open(href, "_blank", "noopener,noreferrer");
+            }}
+            className="pointer-events-auto relative flex space-x-2 items-center z-10 rounded-full bg-zinc-950 py-0.5 px-4 ring-1 ring-white/10"
+            aria-label={title || href || "open link"}
           >
             <span className="relative z-20 text-white text-xs font-bold inline-block py-0.5">
               {title}
             </span>
 
             <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover/btn:opacity-40"></span>
-          </a>
+          </button>
         </div>
 
         <div

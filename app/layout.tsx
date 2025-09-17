@@ -18,13 +18,13 @@ export const metadata: Metadata = {
   description: "Modern & Minimalist portfolio",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className="dark"
+      style={{ colorScheme: "dark" }} // ensures server/client match
+    >
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
