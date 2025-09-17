@@ -44,40 +44,25 @@ export function BentoGrid({ className, children }: BentoGridProps) {
 
 /* ------------------ tech stacks rendered on id === 3 ------------------ */
 export function TechStacks() {
-  const leftList =  ["TypeScript", "React", "Next.js", "TailwindCSS"];
-  const rightList = ["Java", "Spring Boot", "Node.js", "PostgreSQL"];
+  const stacks = [
+    "TypeScript", "React", "Next.js", "TailwindCSS",
+    "Java", "Spring Boot", "Node.js", "PostgreSQL",
+  ];
 
   return (
-    <div className="absolute top-4 right-4 z-20 flex gap-4 flex-wrap lg:flex-nowrap">
-      {/* TechStacks columns */}
-      <div className="flex gap-4">
-        {/* Left column */}
-        <div className="flex flex-col gap-2">
-          {leftList.map((item, i) => (
-            <span
-              key={i}
-              className="py-1 px-3 lg:py-2 lg:px-3 text-xs lg:text-sm text-center bg-[#10132E] rounded-lg opacity-90"
-            >
-              {item}
-            </span>
-          ))}
-        </div>
-
-        {/* Right column */}
-        <div className="flex flex-col gap-2">
-          {rightList.map((item, i) => (
-            <span
-              key={i}
-              className="py-1 px-3 lg:py-2 lg:px-3 text-xs lg:text-sm text-center bg-[#10132E] rounded-lg opacity-90"
-            >
-              {item}
-            </span>
-          ))}
-        </div>
-      </div>
+    <div className="w-full flex flex-wrap gap-2 justify-center">
+      {stacks.map((tech, i) => (
+        <span
+          key={i}
+          className="py-0.5 px-2 text-xs lg:py-2 lg:px-3 lg:text-sm text-center bg-[#10132E] rounded-lg opacity-90"
+        >
+          {tech}
+        </span>
+      ))}
     </div>
   );
 }
+
 
 /* ---------- BentoGridItem (main) ---------- */
 export function BentoGridItem({
@@ -108,7 +93,6 @@ export function BentoGridItem({
     try {
       await navigator.clipboard.writeText('elmanssouriomar@gmail.com');
       setCopied(true);
-      // setTimeout(() => setCopied(false), 3000); // optional reset after 3s
     } catch (err) {
       console.error('Clipboard copy failed', err);
     }
@@ -133,7 +117,6 @@ export function BentoGridItem({
 
       {/* conditional decorations */}
       {id === 2 && <GridGlobe />}
-      {id === 3 && <TechStacks />}
       {id === 5 && spareImg && (
         <img
           src={spareImg}
@@ -143,43 +126,77 @@ export function BentoGridItem({
       )}
       {id === 6 && <BackgroundGradientAnimation />}
 
-      {/* content */}
-      <div
-        className={cn(
-          'relative flex flex-col flex-1 gap-4 z-10 transition duration-200 group-hover/bento:translate-x-2',
-          id === 2 && 'pointer-events-none', // disable only for id 2
-          titleClassName
-        )}
-      >
-        {title && (
-          <div className={cn('font-sans font-bold text-lg lg:text-2xl')}>
-            {title}
+      {/* ------------------------------
+          CONTENT
+          - MODIFICATION: special responsive layout for card id === 3
+            • small screens: stacked (content then TechStacks)
+            • md+ screens: side-by-side (content | TechStacks)
+      ------------------------------- */}
+      {id === 3 ? (
+        /* MODIFICATION: responsive two-column layout for card 3 */
+        <div
+          className={cn(
+            'relative flex flex-col md:flex-row items-start gap-4 z-10 transition duration-200',
+            titleClassName
+          )}
+        >
+          {/* Left: main title + description (fills available space) */}
+          <div className="w-full md:flex-1">
+            {title && <div className="font-sans font-bold text-lg lg:text-2xl">{title}</div>}
+            {description && (
+              <div className="mt-2 font-sans font-extralight md:max-w-32 md:text-xs lg:text-base text-sm text-[#C1C2D3]">
+                {description}
+              </div>
+            )}
           </div>
-        )}
 
-        {description && (
-          <div className="font-sans font-extralight md:max-w-32 md:text-xs lg:text-base text-sm text-[#C1C2D3]">
-            {description}
+          {/* Right: TechStacks
+              - MODIFICATION: on mobile this sits *below* because parent is col
+              - on md+ it becomes a fixed-width column beside content
+          */}
+          <div className="w-full md:w-48 lg:w-56 flex-shrink-0">
+            <TechStacks />
           </div>
-        )}
-
-        {/* card 6: copy button + lottie */}
-        {id === 6 && (
-          <div className="relative">
-            <div className="absolute -bottom-5 right-0">
-              <Lottie options={lottieOptions} height={200} width={400} />
+        </div>
+      ) : (
+        /* default content for other cards (unchanged) */
+        <div
+          className={cn(
+            'relative flex flex-col flex-1 gap-4 z-10 transition duration-200 group-hover/bento:translate-x-2',
+            id === 2 && 'pointer-events-none',
+            titleClassName
+          )}
+        >
+          {title && (
+            <div className={cn('font-sans font-bold text-lg lg:text-2xl')}>
+              {title}
             </div>
+          )}
 
-            <MagicButton
-              title={copied ? 'Email is Copied!' : 'Copy my email address'}
-              icon={<IoCopyOutline />}
-              position="left"
-              handleClick={handleCopy}
-              otherClasses="!bg-[#161A31]"
-            />
-          </div>
-        )}
-      </div>
+          {description && (
+            <div className="font-sans font-extralight md:max-w-32 md:text-xs lg:text-base text-sm text-[#C1C2D3]">
+              {description}
+            </div>
+          )}
+
+          {/* card 6: copy button + lottie */}
+          {id === 6 && (
+            <div className="relative">
+              <div className="absolute -bottom-5 right-0">
+                <Lottie options={lottieOptions} height={200} width={400} />
+              </div>
+
+              <MagicButton
+                title={copied ? 'Email is Copied!' : 'Copy my email address'}
+                icon={<IoCopyOutline />}
+                position="left"
+                handleClick={handleCopy}
+                otherClasses="!bg-[#161A31]"
+              />
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
