@@ -40,7 +40,7 @@ export function GridBackground() {
         </p>
 
         {/* CTA button */}
-        <a href="#projects" className="mt-4">
+        <a href="#projects" className="mt-4 md:mt-10">
           <MagicButton
             title="Show my work"
             icon={<FaLocationArrow />}
