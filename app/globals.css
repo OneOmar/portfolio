@@ -88,4 +88,19 @@
       transform: translateY(-50%);
     }
   }
+
+  @keyframes fadeBlur {
+    0% {
+      opacity: 0;
+      filter: blur(8px);
+    }
+
+    100% {
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+
+  /* Reusable variable for animation */
+  --animate-fadeBlur: fadeBlur 0.5s forwards;
 }
