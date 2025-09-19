@@ -1,39 +1,49 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CanvasRevealEffect } from "./ui/CanvasRevealEffect";
 import { phases } from "@/data";
 
-const Approach = () => (
-  <section className="w-full py-20">
-    <h1 className="font-bold text-3xl md:text-5xl text-center">
-      My <span className="text-purple">approach</span>
-    </h1>
+const Approach = () => {
+  const [activeCard, setActiveCard] = useState<string | null>(null);
 
-    <div className="my-20 flex flex-col lg:flex-row items-center justify-center w-full gap-6">
-      {phases.map(({ title, order, description, effectProps }) => (
-        <Card
-          key={order}
-          title={title}
-          icon={<AceternityIcon order={order} />}
-          description={description}
-          effectProps={effectProps}
-        />
-      ))}
-    </div>
-  </section>
-);
+  return (
+    <section className="w-full py-20">
+      <h1 className="font-bold text-3xl md:text-5xl text-center">
+        My <span className="text-purple">approach</span>
+      </h1>
+
+      <div className="my-20 flex flex-col lg:flex-row items-center justify-center w-full gap-6">
+        {phases.map(({ title, order, description, effectProps }) => (
+          <Card
+            key={order}
+            order={String(order)}
+            title={title}
+            icon={<AceternityIcon order={String(order)} />}
+            description={description}
+            effectProps={effectProps}
+            activeCard={activeCard}
+            setActiveCard={setActiveCard}
+          />
+        ))}
+      </div>
+    </section>
+  );
+};
 
 export default Approach;
 
 // ---------------- Card Component ----------------
 
 type CardProps = {
+  order: string;
   title: string;
   icon: React.ReactNode;
   description: string;
   effectProps?: any;
+  activeCard: string | null;
+  setActiveCard: (id: string | null) => void;
 };
 
 const cornerPositions = [
@@ -43,16 +53,51 @@ const cornerPositions = [
   "-bottom-3 -right-3",
 ];
 
-const Card = ({ title, icon, description, effectProps }: CardProps) => {
-  const [hovered, setHovered] = useState(false);
+const Card = ({
+  order,
+  title,
+  icon,
+  description,
+  effectProps,
+  activeCard,
+  setActiveCard,
+}: CardProps) => {
+  const isActive = activeCard === order;
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  // Close when clicking/tapping outside
+  useEffect(() => {
+    const onDocClick = (e: MouseEvent) => {
+      if (!ref.current) return;
+      if (isActive && !ref.current.contains(e.target as Node)) {
+        setActiveCard(null);
+      }
+    };
+    document.addEventListener("mousedown", onDocClick);
+    return () => document.removeEventListener("mousedown", onDocClick);
+  }, [isActive, setActiveCard]);
+
+  const handleToggle = () => setActiveCard(isActive ? null : order);
 
   return (
     <div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      ref={ref}
+      role="button"
+      tabIndex={0}
+      aria-expanded={isActive}
+      onClick={handleToggle} // makes it work on touch
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          handleToggle();
+        }
+      }}
+      onMouseEnter={() => setActiveCard(order)} // desktop hover
+      onMouseLeave={() => setActiveCard(null)}
       className="relative mx-auto flex max-w-sm w-full items-center justify-center rounded-3xl border border-black/[0.2] p-4 lg:h-[35rem] dark:border-white/[0.2] group/canvas-card"
       style={{
-        background: "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
+        background:
+          "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
       }}
     >
       {/* Corner Icons */}
@@ -65,8 +110,9 @@ const Card = ({ title, icon, description, effectProps }: CardProps) => {
 
       {/* Hover Canvas */}
       <AnimatePresence>
-        {hovered && (
+        {isActive && (
           <motion.div
+            key="canvas"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -80,15 +126,27 @@ const Card = ({ title, icon, description, effectProps }: CardProps) => {
 
       {/* Card Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-200 group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0">
+        {/* Icon: when active -> move up & fade out */}
+        <div
+          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-200 ${isActive ? "-translate-y-4 opacity-0" : "translate-y-0 opacity-100"
+            }`}
+        >
           {icon}
         </div>
 
-        <h2 className="mt-4 text-3xl font-bold text-white opacity-0 transition-all duration-200 group-hover/canvas-card:-translate-y-2 group-hover/canvas-card:opacity-100">
+        {/* Title */}
+        <h2
+          className={`mt-4 text-3xl font-bold text-white transition-all duration-200 ${isActive ? "-translate-y-2 opacity-100" : "opacity-0"
+            }`}
+        >
           {title}
         </h2>
 
-        <p className="mt-2 text-sm text-gray-300 opacity-0 transition-all duration-200 group-hover/canvas-card:-translate-y-2 group-hover/canvas-card:opacity-100">
+        {/* Description */}
+        <p
+          className={`mt-2 text-sm text-gray-300 transition-all duration-200 ${isActive ? "-translate-y-2 opacity-100" : "opacity-0"
+            }`}
+        >
           {description}
         </p>
       </div>
