@@ -26,13 +26,26 @@ function ProjectCard({ title, description, img, link }: Project) {
   return (
     <div className="flex h-[28rem] md:h-[32rem] w-[80vw] sm:w-[480px] items-center justify-center">
       <PinContainer title={link} href={link}>
+        {/* Project preview */}
         <div className="relative mb-6 flex h-[30vh] sm:h-[40vh] w-[80vw] sm:w-[480px] items-center justify-center overflow-hidden">
+          {/* Background */}
           <div className="relative w-full h-full overflow-hidden bg-[#13162D] lg:rounded-3xl">
-            <img src="/bg.png" alt="background" />
+            <img
+              src="/bg.png"
+              alt="Background pattern"
+              className="w-full h-full object-cover object-center"
+            />
           </div>
-          <img src={img} alt={title} className="absolute bottom-0 z-10" />
+
+          {/* Project image */}
+          <img
+            src={img}
+            alt={`Screenshot of ${title}`}
+            className="absolute bottom-0 z-10 w-full h-full object-contain"
+          />
         </div>
 
+        {/* Content */}
         <h3 className="line-clamp-1 text-base md:text-xl lg:text-2xl font-bold">
           {title}
         </h3>
@@ -41,6 +54,7 @@ function ProjectCard({ title, description, img, link }: Project) {
           {description}
         </p>
 
+        {/* GitHub link indicator */}
         <div className="mt-6 flex justify-end">
           <span className="flex items-center text-sm md:text-xs lg:text-xl text-purple">
             Check GitHub
@@ -51,3 +65,4 @@ function ProjectCard({ title, description, img, link }: Project) {
     </div>
   );
 }
+
