@@ -7,11 +7,11 @@ const Hero = () => {
 
       {/* Spotlights */}
       <Spotlight
-        className="absolute top-10 left-3/4 h-[80vh] w-[50vw]"
+        className="absolute top-[10%] left-[75%] sm:top-10 sm:left-3/4 h-[60vh] sm:h-[80vh] w-[80vw] sm:w-[50vw]"
         fill="purple"
       />
       <Spotlight
-        className="absolute top-28 left-80 h-[80vh] w-[50vw]"
+        className="absolute top-[28%] left-[60%] sm:top-28 sm:left-80 h-[60vh] sm:h-[80vh] w-[80vw] sm:w-[50vw]"
         fill="blue"
       />
 
