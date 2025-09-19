@@ -25,6 +25,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className="dark"
       style={{ colorScheme: "dark" }} // ensures server/client match
     >
+      <head>
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.svg" />
+        {/* Optional: set tab color for mobile browsers */}
+        <meta name="theme-color" content="#000319" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
