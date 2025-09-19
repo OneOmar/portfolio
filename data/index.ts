@@ -69,7 +69,6 @@ export const gridItems = [
   },
 ];
 
-
 export const projects = [
   {
     id: 1,
@@ -92,7 +91,7 @@ export const projects = [
     title: "React Real Estate App",
     description:
       "Responsive real estate web app developed with React and SASS, featuring an intuitive interface for property browsing.",
-    img: "/real-estate-app.jpg",
+    img: "/real-estate-app.webp",
     link: "https://github.com/OneOmar/real-estate-app",
   },
   {
@@ -100,10 +99,9 @@ export const projects = [
     title: "Restaurant Fiasco",
     description:
       "Responsive restaurant website mockup featuring HTML & CSS. Showcases menu pages, recipe previews, and image galleries with clean layout and visual design.",
-    img: "/restaurant-fiasco.png",
+    img: "/restaurant-fiasco.webp",
     link: "https://github.com/OneOmar/Restaurant_Fiasco/",
   }
-
 ];
 
 export const experiences = [
