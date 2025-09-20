@@ -85,6 +85,7 @@ const Card = ({
       role="button"
       tabIndex={0}
       aria-expanded={isActive}
+      aria-label={`Phase ${order}: ${title}`}  // ✅ Accessible name for testing & screen readers
       onClick={handleToggle} // makes it work on touch
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
