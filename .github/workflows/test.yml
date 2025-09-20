@@ -1,0 +1,31 @@
+name: Run Tests
+
+# When this workflow runs
+on:
+  push:
+    branches:
+      - master       # Run tests when pushing to main
+      - develop    # Or develop branch
+  pull_request:
+    branches:
+      - master       # Run tests on PRs to main
+      - develop
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Use Linux for the runner
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3  # Get your code
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22.19.0  # Same version as your local Node
+
+      - name: Install dependencies
+        run: npm ci  # Install exactly what’s in package-lock.json
+
+      - name: Run tests
+        run: npm test  # Run Jest tests
