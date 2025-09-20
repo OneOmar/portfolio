@@ -23,7 +23,7 @@ const customJestConfig = {
 
   // Transform JS/TS files
   transform: {
-    "^.+\\.(js|jsx|ts|tsx)$": "babel-jest",
+    "^.+\\.(js|jsx|ts|tsx)$": ["babel-jest", { configFile: "./babel.config.test.js" }],
   },
 
   // Ignore node_modules
