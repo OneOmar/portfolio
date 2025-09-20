@@ -35,7 +35,7 @@ export function GridBackground() {
         />
 
         {/* Short intro */}
-        <p className="text-sm md:text-lg lg:text-2xl">
+        <p data-testid="hero-intro" className="text-sm md:text-lg lg:text-2xl">
           Hi! I&apos;m Omar, a Full-Stack Developer based in Morocco.
         </p>
 

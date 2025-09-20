@@ -1,12 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export",            // for static export
+  // for static export
+  output: "export",
+
+  // skip TS errors during build
   typescript: {
-    ignoreBuildErrors: true,   // skip TS errors during build
+    ignoreBuildErrors: true,
   },
+
+  // skip ESLint checks at build time
   eslint: {
-    ignoreDuringBuilds: true, // skip ESLint checks at build time
+    ignoreDuringBuilds: true,
   },
 };
 
